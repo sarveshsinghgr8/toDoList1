@@ -9,13 +9,16 @@ app.set("view engine", "ejs");
 var hi = [];
 
 app.get("/", function(req, res) {
-  let day = ;
+  // Get the current date
+  let today = new Date();
   let options = {
     weekday: "long",
     day: "numeric",
     month: "long"
   };
-  res.render("list", { day: day.toLocaleDateString("en-US", options), hi: hi });
+  let day = today.toLocaleDateString("en-US", options);
+
+  res.render("list", { day: day, hi: hi });
 });
 
 app.post("/", function(req, res) {
